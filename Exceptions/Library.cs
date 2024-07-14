@@ -4,8 +4,8 @@ namespace GenericTaskCodeAcademy.Exceptions
 {
     public class Library
     {
-        public int BookLimit { get; set; }
-        private List<Book> Books { get; set;}
+        public int BookLimit { get;  }
+        private List<Book> Books { get;}
         public Library(int bookLimit)
         {
             if(bookLimit < 0)
@@ -17,7 +17,7 @@ namespace GenericTaskCodeAcademy.Exceptions
         }
         public void AddBook(Book book)
         {
-            if(Books.Count> BookLimit)
+            if(Books.Count>= BookLimit)
             {
                 throw new CapacityLimitException("Capacity dolub");
             }
@@ -28,8 +28,8 @@ namespace GenericTaskCodeAcademy.Exceptions
         {
             foreach(Book book in Books)
             {
-                if(book.Id == id)
-                    return book;   
+                if(book.Id == id) {  return book; }
+                     
             }
             throw new NotFoundException("Kitab tapilmadi");
         }

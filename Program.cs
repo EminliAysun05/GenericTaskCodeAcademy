@@ -25,10 +25,13 @@ namespace GenericTaskCodeAcademy
                 library.RemoveById(book1.Id);
                 // get book by id
                 var retrivedBook = library.GetBookById(book2.Id);
-                Console.WriteLine("Selling book: ");
+                Console.WriteLine("Retrived book: ");
                 retrivedBook.ShowInfo();
                 //Selling book
-                book2.Sell();
+
+                Console.WriteLine("Selling book...");
+                retrivedBook.Sell();
+                retrivedBook.ShowInfo();
             } 
             catch (Exception ex)
             {

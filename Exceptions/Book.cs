@@ -10,20 +10,23 @@ namespace GenericTaskCodeAcademy.Exceptions
 
         public Book(string name, decimal price, string authorName, int pageCount,int count) : base(name,price)
         {
-            Name = name;
-            Price = price;
+            
             AuthorName = authorName;
             PageCount = pageCount;
-            Count = Count;
+            Count = count;
         }
         public override void Sell()
         {
-            if(Count == 0)
+            if(Count >0)
             {
-                throw new ProductCountIsZeroException("Satis bas vermir");
-            }
+
             Count--;
             TotalInCome+=Price;
+            }
+            else {
+                throw new ProductCountIsZeroException("Satis bas vermir");
+            }
+            
         }
         public override void ShowInfo()
         {
